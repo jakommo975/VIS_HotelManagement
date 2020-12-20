@@ -1,0 +1,104 @@
+﻿@model VIS_HotelManagement.Models.RoomDetailModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 col-lg-3">
+            <div class="search-form-wrapper">
+                <form id="bookInfoForm" action="/Room/Search" style="width: 100%">
+                    <h4>Search</h4>
+                    <label>Check-in</label>
+                    <input name="StartDate" type="date" value="@Model.StartDate.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                    <label>Check-out</label>
+                    <input name="EndDate" type="date" value="@Model.EndDate.ToString("yyyy-MM-dd")"/>
+                    <label>Persons</label>
+                    <input name="NumberOfPersons" type="number" value="1" min="0" max="4" />
+                    <button class="btn btn-primary">Search</button>
+                </form>
+                <script type="text/javascript" src="~/js/dates.js"></script>
+            </div>
+        </div>
+        <div class="col-8 col-lg-9">
+            <h3>@Model.RoomType.Name</h3>
+            <div class="photos-container mt-3 mb-4">
+                <div style="grid-column: 1 / span 4; grid-row: 1 / span 3">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 1 / span 4; grid-row: 4 / span 3">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 5 / span 8; grid-row: 1 / span 6">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 1 / span 3; grid-row: 7 / span 2">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 4 / span 3; grid-row: 7 / span 2">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 7 / span 3; grid-row: 7 / span 2">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+                <div style="grid-column: 10 / span 3; grid-row: 7 / span 2">
+                    <img src="~/images/RoomTypes/1/photo1.jpg" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h4>Room Description</h4>
+                    <div class="border-rounded block-shadow p-2">
+                        @Model.RoomType.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    @* booking info, prices... *@
+                    <form action="/Booking/Preview">
+                        <div id="bookInfo" class="border-rounded block-shadow p-3 my-4 d-flex flex-column">
+                            <div class="mb-2"><b>€ @Model.RoomType.BookingPrice</b> / night</div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <input style="width: 48%" name="StartDate" id="startDate" type="date" value="@Model.StartDate.ToString("yyyyy-MM-dd")" />
+                                <input style="width: 48%" name="EndDate" id="endDate" type="date" value="@Model.EndDate.ToString("yyyyy-MM-dd")" />
+                            </div>
+                            <select id="numberOfPersonsSelect" name="NumberOfPersons" class="py-1 px-1 mb-1">
+                                @for (int i = 1; i <= Model.RoomType.MaxCapacity; i++)
+                                {
+                                    <option value="@i">@i adult </option>
+                                }
+                            </select>
+                            <input id="roomTypeId" name="roomTypeId" value="@Model.RoomType.Id" type="hidden" />
+                            <div class="py-2 mb-1 mt-3" style="border-bottom: 1px solid black; border-top: 1px solid black;">
+                                <div class="d-flex justify-content-between">
+                                    <div>Accomodation</div>
+                                    <div id="accomodationPrice"> @Model.Accomodationprice €</div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>Service Fee</div>
+                                    <div id="serviceFee"> @Model.ServiceFee €</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 1.1em;" class="d-flex justify-content-between font-weight-bold mb-3">
+                                <div>Total</div>
+                                <div id="totalPrice">@Model.TotalPrice €</div>
+                            </div>
+
+                            <button class="btn btn-primary">Book Room</button>
+                        </div>
+                    </form>
+                    
+                    <script src="~/js/roomDetail.js"></script>
+                </div>
+                <div class="col-5">
+                    <div style="height: 87%;"  class="border-rounded block-shadow p-3 my-4">
+                        <ul>
+                            @foreach (string description in Model.ShortDescriptions)
+                            {
+                                <li style="color: forestgreen">@description</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

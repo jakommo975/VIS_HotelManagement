@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VIS_HotelManagement</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/myStyle.css" />
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo.png" class="logo" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav ml-auto">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item mr-3 @(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">
+                                <a class="nav-link" asp-controller="User" asp-action="MyAccount">My Account</a>
+                            </li>
+                            <li class="nav-item mr-3 @(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">
+                                <form action="/User/Logout" method="post">
+                                    <button class="logoutButton nav-link" type="submit">Log Out</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item mr-3 @(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">
+                                <a class="nav-link" asp-controller="User" asp-action="Login">Log In</a>
+                            </li>
+                            <li class="nav-item mr-3 @(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">
+                                <a class="nav-link" asp-controller="User" asp-action="Register">Register</a>
+                            </li>
+                        }
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" href="">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VIS_HotelManagement</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            -->
+    </header>
+    <div class="content">
+        @RenderBody()
+        <!--
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+        -->
+
+        <!-- Error modal-->
+        @if (@ViewBag.Message != null)
+        {
+            <div id="errorOverlay" class="message-overlay">
+                <div class="message-container border-rounded block-shadow p-3">
+                    <p class="text-center">@ViewBag.Message</p>
+                    @if (ViewBag.Redirect != null)
+                    {
+                        <a class="btn btn-primary" href="@ViewBag.RedirectUrl">OK</a>
+                    }
+                    else
+                    {
+                        <button onclick="$('#errorOverlay').css('display', 'none')" class="btn btn-primary">OK</button>
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+
+    @*<footer id="main-footer" class="">
+            <div class="footer-copyright row">
+                <div class="col-12 col-md-5 d-flex pl-5 justify-content-start mb-3 mb-sm-0">
+                    <div>
+                        Copyright &copy; VIA-Študentský projekt
+                    </div>
+                </div>
+            </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/cde85e08ba.js" crossorigin="anonymous"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

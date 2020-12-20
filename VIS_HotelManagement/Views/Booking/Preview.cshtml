@@ -1,0 +1,89 @@
+﻿@model VIS_HotelManagement.Models.BookingPreviewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <h3 class="mb-4">Booking Preview</h3>
+    <form action="/Booking/Book" method="post">
+        <div class="row">
+            <div class="col-6">
+                <h4>Booking</h4>
+                <div id="bookInfo" class="border-rounded block-shadow p-3 mb-4 d-flex flex-column">
+                    <div class="bottom-border-grey pb-2 mb-3">
+                        <label class="font-weight-bold">Dates:</label>
+                        <div>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</div>
+                    </div>
+                    <div class="bottom-border-grey pb-2 mb-3">
+                        <label class="font-weight-bold">Duration:</label>
+                        <div>@Model.DurationInNights nights</div>
+                    </div>
+                    <div class="bottom-border-grey pb-2 mb-2">
+                        <label class="font-weight-bold">Guests:</label>
+                        <div>
+                            @Model.NumberOfPersons adults
+                        </div>
+                    </div>
+                    <div class="bottom-border-grey pb-2 mb-2">
+                        <label class="font-weight-bold">Total price:</label>
+                        <div>@Model.PriceModel.TotalPrice €</div>
+                    </div>
+                    <div class="pb-2 mt-2 mb-3">
+                        <label class="font-weight-bold">Choose payment method:</label>
+                        <div class="mt-2">
+                            <select class="py-1 px-2">
+                                <option value="card">Online Card Payment</option>
+                                <option value="paypal">Paypal</option>
+                                <option value="transfer">Bank Transfer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" name="NumberOfPersons" value="@Model.NumberOfPersons"/>
+                    <input type="hidden" name="StartDate" value="@Model.StartDate.ToString()" />
+                    <input type="hidden" name="EndDate" value="@Model.EndDate.ToString()"/>
+                    <input type="hidden" name="RoomTypeId" value="@Model.RoomType.Id"/>
+                    <button class="btn btn-primary">Confirm and pay</button>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <h4>Price Details</h4>
+                <div style="height: 88.7%" id="bookInfo" class="border-rounded block-shadow p-3 mb-4 d-flex flex-column">
+                    <div class="row">
+                        <div class="col-7">
+                            <img style="border-radius: 4px" class="w-100" src="~/images/RoomTypes/1/photo1.jpg" />
+                        </div>
+
+                        <div class="col-5 pl-0">
+                            <h5 class="">@Model.RoomType.Name</h5>
+                            <p>@Model.RoomType.ShortDescription</p>
+                            <p>@Model.RoomType.BookingPrice € / night</p>
+                        </div>
+                    </div>
+
+
+                    <div class="py-2 mb-1 mt-4" style="border-bottom: 1px solid black; border-top: 1px solid black;">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div>Accomodation (@Model.DurationInNights x @Model.RoomType.BookingPrice €)</div>
+                            </div>
+                            <div class="d-flex align-items-end" id="accomodationPrice">@Model.PriceModel.AccomodationPrice €</div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <div>Service Fee</div>
+                            <div id="serviceFee"> @Model.PriceModel.ServiceFee €</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 1.1em;" class="d-flex justify-content-between font-weight-bold mb-3">
+                        <div>Total</div>
+                        <div id="totalPrice">@Model.PriceModel.TotalPrice €</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

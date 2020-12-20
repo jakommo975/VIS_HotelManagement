@@ -1,0 +1,30 @@
+﻿@model VIS_HotelManagement.Models.SearchModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="seachr-bar-container">
+    <form id="searchForm" action="/Room/Search">
+        <div class="seachr-bar-wrapper">
+            <div>
+                <label>Check-In</label>
+                <input name="StartDate" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+            </div>
+            <div>
+                <label>Check-Out</label>
+                <input name="EndDate" type="date" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")"/>
+            </div>
+            <div>
+                <label>Persons</label>
+                <input name="NumberOfPersons" type="number" value="1" min="0" max="4"/>
+            </div>
+            <div>
+                <i id="searchIcon" class="fas fa-search"></i>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="/js/index.js"></script>
+
+
+</div>

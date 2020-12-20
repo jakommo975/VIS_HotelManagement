@@ -1,0 +1,219 @@
+﻿html {
+    height: 100%;
+}
+
+
+label{
+    margin-bottom: 0px;
+}
+
+body {
+    height: 100%;
+    margin-bottom: 0px;
+}
+
+input{
+    border-radius: 4px;
+    border: 1px solid #555;
+    padding: 4px 6px;
+}
+
+.content {
+    position: relative;
+    padding: 20px 0px;
+}
+.content main{
+    min-height: 100%;
+}
+
+.logo{
+    height: 64px;
+}
+
+.navbar {
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 0px 12px -1px rgb(185, 185, 185);
+}
+
+.seachr-bar-container {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seachr-bar-wrapper {
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    padding: 14px;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 12px -1px rgb(185, 185, 185);
+}
+
+.seachr-bar-wrapper label{
+    margin-bottom: 0px;
+    margin-right: 6px;
+}
+
+.seachr-bar-wrapper div{
+    margin: 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .seachr-bar-wrapper input {
+        max-width: 156px;
+       
+    }
+
+.seachr-bar-wrapper i {
+    cursor: pointer;
+    font-size: 1.3em;
+    
+}
+
+
+.seachr-bar-wrapper input[type=number] {
+    max-width: 100px;
+}
+
+.room-type-short-info img{
+    height: 120px;
+    border-radius: 8px;
+
+}
+
+.room-type-wrapper{
+    padding: 10px 16px 16px 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+.price-per-night{
+    font-size: 1.1em;
+}
+
+.search-form-wrapper {
+    border: 1px solid #ccc;
+    padding: 16px 20px;
+    display: flex;
+    background-color: white;
+
+}
+
+.search-form-wrapper input{
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.search-form-wrapper label {
+    margin-bottom: 2px;
+    font-size: 0.8em
+}
+
+.search-form-wrapper button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+footer{
+    border-top: 1px solid #ccc;
+    padding: 20px 0px;
+}
+
+.full-height{
+    height: 80vh;
+}
+
+.form-window {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background: white;
+    box-shadow: 0px 0px 12px -1px rgb(185, 185, 185);
+}
+
+.form-window input{
+    margin-bottom: 6px;
+    
+}
+
+.form-window label {
+    font-size: 0.9em;
+}
+
+.logoutButton{
+    background: transparent;
+    border: none;
+    margin-left: 0px;
+
+}
+
+.photos-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 460px;
+    width: 100%;
+    grid-gap: 8px;
+}
+.photos-container > div{
+    width: 100%;
+    height: 100%;
+}
+
+
+.photos-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.border-rounded{
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+
+.block-shadow {
+    box-shadow: 0px 0px 12px -1px rgb(185, 185, 185);
+}
+
+.bottom-border-grey {
+    border-bottom: 1px solid #ccc;
+}
+
+/*#bookInfo input[type=date]{
+    max-width:160px;
+}*/
+
+.message-overlay {
+    position: absolute;
+    background: rgba(255,255,255,0.8);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-container{
+    width: 400px;
+    background: white;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

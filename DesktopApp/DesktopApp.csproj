@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB8A87A3-874A-49AA-AE57-5CAABE7D9842}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DesktopApp</RootNamespace>
+    <AssemblyName>DesktopApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=5.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.5.1.0\lib\net461\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\GuestItemModel.cs" />
+    <Compile Include="Models\RoomItemModel.cs" />
+    <Compile Include="Models\RoomTypeItemModel.cs" />
+    <Compile Include="Views\BookingDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BookingDetailView.Designer.cs">
+      <DependentUpon>BookingDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookingsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BookingsView.Designer.cs">
+      <DependentUpon>BookingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopLevelView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopLevelView.Designer.cs">
+      <DependentUpon>TopLevelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingItemModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ChooseRoomView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChooseRoomView.Designer.cs">
+      <DependentUpon>ChooseRoomView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComboBoxItem.cs" />
+    <Compile Include="Views\GuestsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GuestsView.Designer.cs">
+      <DependentUpon>GuestsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoomDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RoomDetailView.Designer.cs">
+      <DependentUpon>RoomDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoomsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RoomsView.Designer.cs">
+      <DependentUpon>RoomsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoomTypeDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RoomTypeDetailView.Designer.cs">
+      <DependentUpon>RoomTypeDetailView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\BookingDetailView.resx">
+      <DependentUpon>BookingDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BookingsView.resx">
+      <DependentUpon>BookingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopLevelView.resx">
+      <DependentUpon>TopLevelView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\ChooseRoomView.resx">
+      <DependentUpon>ChooseRoomView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GuestsView.resx">
+      <DependentUpon>GuestsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RoomDetailView.resx">
+      <DependentUpon>RoomDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RoomsView.resx">
+      <DependentUpon>RoomsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RoomTypeDetailView.resx">
+      <DependentUpon>RoomTypeDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{c8783ec4-6735-4784-a728-992f5b8eca9f}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{def04460-c5fe-4df6-8531-d731a26bf0c4}</Project>
+      <Name>DomainLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{6ea0694f-cd1d-4e48-bee5-1016415a7f48}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,24 @@
+﻿@model VIS_HotelManagement.Models.LoginModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="full-height d-flex justify-content-center align-items-center">
+    <form action="/User/Login" method="post">
+        <div class="form-window">
+            <h4 class="text-center mb-4">Welcome</h4>
+            <input type="email" value="@Model.Email" required class="mb-3" name="email" placeholder="Email">
+            <input type="password" value="@Model.Password" required class="mb-2" name="password" placeholder="Password">
+            @if (!Model.Succes)
+            {
+                <div class="text-danger text-center text">
+                    @Model.Message
+                </div>
+            }
+            <button class="btn btn-primary mt-2">Log In</button>
+        </div>
+    </form>
+</div>

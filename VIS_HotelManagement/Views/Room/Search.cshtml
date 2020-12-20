@@ -1,0 +1,59 @@
+﻿@model VIS_HotelManagement.Models.SearchResultModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 col-lg-3">
+            <div class="search-form-wrapper">
+                <form action="/Room/Search" style="width: 100%">
+                    <h4>Search</h4>
+                    <label>Check-in</label>
+                    <input name="StartDate" type="date" value="@Model.StartDate.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                    <label>Check-out</label>
+                    <input name="EndDate" type="date" value="@Model.EndDate.ToString("yyyy-MM-dd")"/>
+                    <label>Persons</label>
+                    <input name="NumberOfPersons" type="number" value="1" min="0" max="4"/>
+                    <button class="btn btn-primary">Search</button>
+                </form>
+                <script type="text/javascript" src="~/js/dates.js"></script>
+            </div>
+        </div>
+        <div class="col-8 col-lg-9">
+            @foreach (var type in Model.RoomTypes)
+            {
+                <div class="room-type-wrapper">
+                    <h4>@type.Name</h4>
+                    <div class="room-type-short-info d-flex">
+                        <div>
+                            <img src="~/images/RoomTypes/1/photo1.jpg" />
+                        </div>
+                        <div class="mx-4 my-2" style="flex: 4">
+                            <div class="room-price">
+                                <span class="font-weight-bold price-per-night">@type.BookingPrice €</span> / night</div>
+                            <div class="room-price">
+                                <span>@type.TotalPrice €</span><span style="font-size: 0.9em"> in total for @Model.DurationInNights nights</span>
+                            </div>
+                            <div>
+                                @type.ShortDescription
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 align-self-center text-right">
+                            <form action="/Room/Detail/@type.Id">
+                                <button type="submit" class="btn btn-primary">Show Detail</button>
+                                <input name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" type="hidden" />
+                                <input name="EndDate" value="@Model.EndDate.ToString("yyyy-MM-dd")" type="hidden" />
+                                <input name="NumberOfPersons" value="@Model.NumberOfPersons" type="hidden"/>
+                            </form>
+                             @*<a href="/Room/@type.Id" class="btn btn-primary">Show Detail</a>*@
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

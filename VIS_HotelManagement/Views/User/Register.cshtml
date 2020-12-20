@@ -1,0 +1,43 @@
+﻿@model VIS_HotelManagement.Models.RegistrationModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="full-height d-flex justify-content-center align-items-center">
+    <form action="/User/Register" method="post">
+        @if (Model.CanLogin)
+        {
+            <div class="form-window">
+                <p>
+                    Your account was created. <a href="/User/Login">You can sign in here.</a>
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="form-window">
+                <h4 class="text-center mb-4">We are glad you chose us!</h4>
+                <label>Full Name</label>
+                <input name="name" type="text" value="@Model.Name" required />
+                <label>Email</label>
+                <input name="email" required value="@Model.Email" type="email" />
+                <label>Phone</label>
+                <input name="phone" value="@Model.Phone" required type="text" />
+                <label>Password</label>
+                <input name="password" required type="password" />
+                <label>Confirm Password</label>
+                <input name="passwordConfirm" required type="password" />
+                @if (!Model.Success)
+                {
+                    <div class="text-danger text-center">
+                        @Model.Message
+                    </div>
+                }
+                <button class="btn btn-primary mt-3">Register</button>
+            </div>
+        }
+
+    </form>
+</div>
